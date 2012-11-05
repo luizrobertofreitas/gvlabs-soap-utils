@@ -24,15 +24,37 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+/**
+ * Simple SOAP Client
+ * 
+ * @author Thiago Galbiatti Vespa
+ * @version 1.1
+ */
 public class SoapClient {
 
 	private String endpoint;
 
+	/**
+	 * Constructor with an endpoint
+	 * @param endpoint soap endpoint 
+	 */
 	public SoapClient(String endpoint) {
 		super();
 		this.endpoint = endpoint;
 	}
 
+	/**
+	 * Invoke a SOAP Operation
+	 * 
+	 * @param operation operation name (Header: SOAPAction)
+	 * @param input request payload
+	 * @return response payload
+	 * @throws SOAPException
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws TransformerException
+	 */
 	public String invokeOperation(String operation, String input) throws SOAPException, ParserConfigurationException, SAXException, IOException, TransformerException {
 		String response = null;
 		SOAPConnection connection = null;
