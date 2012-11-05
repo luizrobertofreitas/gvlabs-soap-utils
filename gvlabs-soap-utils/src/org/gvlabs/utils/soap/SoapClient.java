@@ -81,7 +81,7 @@ public class SoapClient {
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				StreamResult result = new StreamResult(baos);
 				tf.transform(sc, result);
-				response = baos.toString();
+				response = baos.toString("UTF-8");
 			}
 
 		} finally {
