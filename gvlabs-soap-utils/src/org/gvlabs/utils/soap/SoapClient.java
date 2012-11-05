@@ -33,7 +33,7 @@ public class SoapClient {
 		this.endpoint = endpoint;
 	}
 
-	public String invokeOperation(String operation, String input) throws UnsupportedOperationException, SOAPException, ParserConfigurationException, SAXException, IOException, TransformerException {
+	public String invokeOperation(String operation, String input) throws SOAPException, ParserConfigurationException, SAXException, IOException, TransformerException {
 		String response = null;
 		SOAPConnection connection = null;
 		try {
