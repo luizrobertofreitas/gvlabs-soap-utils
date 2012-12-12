@@ -19,7 +19,6 @@ public class SoapClientTest {
 	@Test
 	public void testInvokeOperation() {
 		String endpoint = "http://www.webservicex.net/ConvertWeight.asmx";
-		// String endpoint = "http://localhost:8088/mockConvertWeightsSoap";
 		String operation = "http://www.webserviceX.NET/ConvertWeight";
 		String input = "<web:ConvertWeight xmlns:web=\"http://www.webserviceX.NET/\">"
 				+ "<web:Weight>7</web:Weight>"
