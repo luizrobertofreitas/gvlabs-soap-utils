@@ -120,14 +120,11 @@ public class SoapClient {
 		return response;
 	}
 
-	public MessageFactory getMessageFactory() throws SOAPException {
-		MessageFactory messageFactory = MessageFactory.newInstance();
-		return messageFactory;
+	protected MessageFactory getMessageFactory() throws SOAPException {
+		return MessageFactory.newInstance();
 	}
 
-	public SOAPConnectionFactory getSoaConnFactory() throws SOAPException {
-		SOAPConnectionFactory soaConnFactory = SOAPConnectionFactory
-				.newInstance();
-		return soaConnFactory;
+	protected SOAPConnectionFactory getSoaConnFactory() throws SOAPException {
+		return SOAPConnectionFactory.newInstance();
 	}
 }

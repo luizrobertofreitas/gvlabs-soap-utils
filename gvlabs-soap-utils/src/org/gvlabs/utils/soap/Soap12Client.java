@@ -23,7 +23,7 @@ public class Soap12Client extends SoapClient {
 	}
 
 	@Override
-	public MessageFactory getMessageFactory() throws SOAPException {
+	protected MessageFactory getMessageFactory() throws SOAPException {
 		return MessageFactory
 				.newInstance(SOAPConstants.SOAP_1_2_PROTOCOL);
 	}
