@@ -47,7 +47,7 @@ public class SoapClientTest {
 				+ "<web:FromUnit>Grains</web:FromUnit>"
 				+ "<web:ToUnit>Grams</web:ToUnit>" + "</web:ConvertWeight>";
 
-		SoapClient soapClient = new SoapClientFixedDefaultFactory(endpoint);
+		SoapClient soapClient = new Soap12Client(endpoint);
 
 		String response = null;
 		try {
