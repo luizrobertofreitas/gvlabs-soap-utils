@@ -56,7 +56,7 @@ public class SoapClientTest {
 			e.printStackTrace();
 		}
 
-		assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConvertWeightResponse xmlns=\"http://www.webserviceX.NET/\"><ConvertWeightResult>0.4536</ConvertWeightResult></ConvertWeightResponse></soap:Body></soap:Envelope>", response);
+		assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConvertWeightResponse xmlns=\"http://www.webserviceX.NET/\"><ConvertWeightResult>0.4536</ConvertWeightResult></ConvertWeightResponse></soap:Body></soap:Envelope>", response);
 		
 	}
 
