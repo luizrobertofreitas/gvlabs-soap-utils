@@ -25,9 +25,8 @@ public class Soap12Client extends SoapClient {
 
 	@Override
 	public MessageFactory getMessageFactory() throws SOAPException {
-		MessageFactory messageFactory = MessageFactory
+		return MessageFactory
 				.newInstance(SOAPConstants.SOAP_1_2_PROTOCOL);
-		return messageFactory;
 	}
 
 }
