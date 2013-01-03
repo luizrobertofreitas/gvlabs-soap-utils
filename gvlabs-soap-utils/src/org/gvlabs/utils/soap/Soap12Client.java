@@ -1,7 +1,6 @@
 package org.gvlabs.utils.soap;
 
 import javax.xml.soap.MessageFactory;
-import javax.xml.soap.SOAPConnectionFactory;
 import javax.xml.soap.SOAPConstants;
 import javax.xml.soap.SOAPException;
 
