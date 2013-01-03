@@ -28,7 +28,7 @@ import org.xml.sax.SAXException;
  * Simple SOAP Client
  * 
  * @author Thiago Galbiatti Vespa
- * @version 1.1
+ * @version 1.2
  */
 public class SoapClient {
 
@@ -60,12 +60,11 @@ public class SoapClient {
 		SOAPConnection connection = null;
 		try {
 			// Connection
-			SOAPConnectionFactory soaConnFactory = SOAPConnectionFactory
-					.newInstance();
+			SOAPConnectionFactory soaConnFactory = getSoaConnFactory();
 			connection = soaConnFactory.createConnection();
 
 			// Message
-			MessageFactory messageFactory = MessageFactory.newInstance();
+			MessageFactory messageFactory = getMessageFactory();
 			SOAPMessage message = messageFactory.createMessage();
 
 			// Header
@@ -112,5 +111,16 @@ public class SoapClient {
 			}
 		}
 		return response;
+	}
+
+	public MessageFactory getMessageFactory() throws SOAPException {
+		MessageFactory messageFactory = MessageFactory.newInstance();
+		return messageFactory;
+	}
+
+	public SOAPConnectionFactory getSoaConnFactory() throws SOAPException {
+		SOAPConnectionFactory soaConnFactory = SOAPConnectionFactory
+				.newInstance();
+		return soaConnFactory;
 	}
 }

@@ -37,5 +37,27 @@ public class SoapClientTest {
 		assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConvertWeightResponse xmlns=\"http://www.webserviceX.NET/\"><ConvertWeightResult>0.4536</ConvertWeightResult></ConvertWeightResponse></soap:Body></soap:Envelope>", response);
 		
 	}
+	
+	@Test
+	public void testInvokeOperationFixed() {
+		String endpoint = "http://www.webservicex.net/ConvertWeight.asmx";
+		String operation = "http://www.webserviceX.NET/ConvertWeight";
+		String input = "<web:ConvertWeight xmlns:web=\"http://www.webserviceX.NET/\">"
+				+ "<web:Weight>7</web:Weight>"
+				+ "<web:FromUnit>Grains</web:FromUnit>"
+				+ "<web:ToUnit>Grams</web:ToUnit>" + "</web:ConvertWeight>";
+
+		SoapClient soapClient = new SoapClientFixedDefaultFactory(endpoint);
+
+		String response = null;
+		try {
+			response = soapClient.invokeOperation(operation, input);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConvertWeightResponse xmlns=\"http://www.webserviceX.NET/\"><ConvertWeightResult>0.4536</ConvertWeightResult></ConvertWeightResponse></soap:Body></soap:Envelope>", response);
+		
+	}
 
 }
