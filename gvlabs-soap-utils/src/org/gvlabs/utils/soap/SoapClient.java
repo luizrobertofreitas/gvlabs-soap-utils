@@ -36,7 +36,9 @@ public class SoapClient {
 
 	/**
 	 * Constructor with an endpoint
-	 * @param endpoint soap endpoint 
+	 * 
+	 * @param endpoint
+	 *            soap endpoint
 	 */
 	public SoapClient(String endpoint) {
 		super();
@@ -46,8 +48,10 @@ public class SoapClient {
 	/**
 	 * Invoke a SOAP Operation
 	 * 
-	 * @param operation operation name (Header: SOAPAction)
-	 * @param input request payload
+	 * @param operation
+	 *            operation name (Header: SOAPAction)
+	 * @param input
+	 *            request payload
 	 * @return response payload
 	 * @throws SOAPException
 	 * @throws ParserConfigurationException
@@ -55,7 +59,9 @@ public class SoapClient {
 	 * @throws IOException
 	 * @throws TransformerException
 	 */
-	public String invokeOperation(String operation, String input) throws SOAPException, ParserConfigurationException, SAXException, IOException, TransformerException {
+	public String invokeOperation(String operation, String input)
+			throws SOAPException, ParserConfigurationException, SAXException,
+			IOException, TransformerException {
 		String response = null;
 		SOAPConnection connection = null;
 		try {
@@ -77,14 +83,15 @@ public class SoapClient {
 			dbf.setNamespaceAware(true);
 
 			DocumentBuilder parser = dbf.newDocumentBuilder();
+			if (input != null) {
+				StringBuffer inputData = new StringBuffer(input);
+				ByteArrayInputStream bis = new ByteArrayInputStream(inputData
+						.toString().getBytes("UTF-8"));
+				Document xmlDoc = parser.parse(bis);
 
-			StringBuffer inputData = new StringBuffer(input);
-			ByteArrayInputStream bis = new ByteArrayInputStream(inputData
-					.toString().getBytes("UTF-8"));
-			Document xmlDoc = parser.parse(bis);
-
-			xmlDoc.setStrictErrorChecking(false);
-			body.addDocument(xmlDoc);
+				xmlDoc.setStrictErrorChecking(false);
+				body.addDocument(xmlDoc);
+			}
 
 			message.saveChanges();
 
